@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class Ball : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
 	
+	GameObject circle;
+	
+	void Start () {
+		circle = PrimitiveType.Sphere;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

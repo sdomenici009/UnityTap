@@ -16,7 +16,7 @@ obj/
  
  
 
-/Fortnite_unity.userprefs
+/Tap.userprefs
 /Assembly-CSharp.csproj
 /Assembly-CSharp.pidb
 /Assembly-CSharp-Editor.csproj
@@ -32,9 +32,9 @@ obj/
 
 /Project.suo
 
-/Drunken-Wallhack-csharp.sln
-/Drunken-Wallhack.sln
-/Drunken-Wallhack.userprefs
+/Tap-csharp.sln
+/Tap.sln
+/Tap.userprefs
 Library/AssetServerCacheV3
 Assembly-UnityScript.unityproj
 Assembly-UnityScript-vs.unityproj
