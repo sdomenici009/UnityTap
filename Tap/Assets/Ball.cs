@@ -22,6 +22,15 @@ public class Ball : MonoBehaviour {
 			target = (temp - gameObject.transform.position).normalized * 20;
 		}
 		
+		foreach(GameObject enemy in gm.enemies)
+		{
+			if(collider.bounds.Intersects(enemy.collider.bounds))
+			{
+				Destroy(this.gameObject);
+				Debug.LogError("YOU SUCK");
+			}
+		}
+		
 		if(collider.bounds.Intersects(gm.wall1.collider.bounds) || 
 		   collider.bounds.Intersects(gm.wall2.collider.bounds))
 		{
