@@ -7,22 +7,56 @@ public class Enemy : MonoBehaviour {
 	Vector3 target;
 	
 	void Start () {
-		target = new Vector3(Random.Range (-45, 45), Random.Range (-45, 45), 0);
+		if(transform.position.x <= 0 && transform.position.y <= 0)
+		{
+			if(Random.Range (0,2) == 0)
+			{
+				target = new Vector3(10, Random.Range (-7, 7), 0);
+			}
+			else
+			{
+				target = new Vector3(Random.Range (-10, 10), 7, 0);
+			}
+		}
+		
+		if(transform.position.x >= 0 && transform.position.y <= 0)
+		{
+			if(Random.Range (0,2) == 0)
+			{
+				target = new Vector3(-10, Random.Range (-7, 7), 0);
+			}
+			else
+			{
+				target = new Vector3(Random.Range (-10, 10), 7, 0);
+			}
+		}
+		
+		if(transform.position.x <= 0 && transform.position.y >= 0)
+		{
+			if(Random.Range (0,2) == 0)
+			{
+				target = new Vector3(10, Random.Range (-7, 7), 0);
+			}
+			else
+			{
+				target = new Vector3(Random.Range (-10, 10), -7, 0);
+			}
+		}
+		
+		if(transform.position.x >= 0 && transform.position.y >= 0)
+		{
+			if(Random.Range (0,2) == 0)
+			{
+				target = new Vector3(-10, Random.Range (-7, 7), 0);
+			}
+			else
+			{
+				target = new Vector3(Random.Range (-10, 10), -7, 0);
+			}
+		}
 	}
 	
 	void Update () {
-		if(collider.bounds.Intersects(gm.wall1.collider.bounds) || 
-		   collider.bounds.Intersects(gm.wall2.collider.bounds))
-		{
-			target = new Vector3(-target.x, target.y);
-		}
-		
-		if(collider.bounds.Intersects(gm.wall3.collider.bounds) ||
-		   collider.bounds.Intersects(gm.wall4.collider.bounds))
-		{
-			target = new Vector3(target.x, -target.y);
-		}
-		
 		transform.position = Vector3.MoveTowards(transform.position, target, .075f);
 	}
 }
