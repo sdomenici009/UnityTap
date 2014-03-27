@@ -18,8 +18,7 @@ public class Enemy : MonoBehaviour {
 				target = new Vector3(Random.Range (-10, 10), 7, 0);
 			}
 		}
-		
-		if(transform.position.x >= 0 && transform.position.y <= 0)
+		else if(transform.position.x >= 0 && transform.position.y <= 0)
 		{
 			if(Random.Range (0,2) == 0)
 			{
@@ -30,8 +29,7 @@ public class Enemy : MonoBehaviour {
 				target = new Vector3(Random.Range (-10, 10), 7, 0);
 			}
 		}
-		
-		if(transform.position.x <= 0 && transform.position.y >= 0)
+		else if(transform.position.x <= 0 && transform.position.y >= 0)
 		{
 			if(Random.Range (0,2) == 0)
 			{
@@ -42,8 +40,7 @@ public class Enemy : MonoBehaviour {
 				target = new Vector3(Random.Range (-10, 10), -7, 0);
 			}
 		}
-		
-		if(transform.position.x >= 0 && transform.position.y >= 0)
+		else if(transform.position.x >= 0 && transform.position.y >= 0)
 		{
 			if(Random.Range (0,2) == 0)
 			{

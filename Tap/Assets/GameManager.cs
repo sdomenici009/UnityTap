@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 	
 	int score;
+	int printScore;
 	GameObject ball;
 	GameObject screenColliders;
 	public GameObject wall1, wall2, wall3, wall4;
@@ -15,9 +16,16 @@ public class GameManager : MonoBehaviour {
 	string scoreString;
 	int randomTime;
 	List<Color> colors = new List<Color>();
+	public bool dead = false;
 	
 	void OnGUI () {
-    	GUI.Label (textArea, score.ToString(), style);
+    	GUI.Label (textArea, printScore.ToString(), style);
+		
+		if(dead)
+		{
+			if(GUI.Button(new Rect(Screen.width/2 - 150, Screen.height/2 + 90, 300, 60), "Reset"))
+				Application.LoadLevel(0);
+		}
     }
 	
 	void Start () {
@@ -29,6 +37,7 @@ public class GameManager : MonoBehaviour {
 		ball = (GameObject)Instantiate(Resources.Load("Ball"));
 		ball.GetComponent<Ball>().gm = this;
 		score = 0;
+		printScore = 0;
 		style.fontSize = 15;
 		style.alignment = TextAnchor.LowerCenter;
 		randomTime = 50;
@@ -40,15 +49,22 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		score += 1;
-		
-		if(score%500 == 0)
+		if(!dead)
 		{
-			style.fontSize += 20;
-			textArea.y += 8;
+			score += 1;
 			
-			if(randomTime > 5)
-				randomTime -= 5;
+			if(score%10 == 0)
+				printScore += 10;
+	
+			
+			if(score%500 == 0)
+			{
+				style.fontSize += 20;
+				textArea.y += 12;
+				
+				if(randomTime > 5)
+					randomTime -= 5;
+			}
 		}
 		
 		if(Random.Range(0, randomTime) == 0)

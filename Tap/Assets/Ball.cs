@@ -10,8 +10,20 @@ public class Ball : MonoBehaviour {
 	void Start () {
 		transform.localScale = new Vector3(.3f, .3f, .3f);
 		transform.rotation = new Quaternion(0, 90, 90, 0);
-		renderer.material.color  = Color.black;	
-		target = new Vector3(25, 25, 0);
+		renderer.material.color  = Color.black;
+		int rand = Random.Range(0,4);
+		
+		if(rand == 0)
+			target = new Vector3(25, 25, 0);
+		
+		if(rand == 1)
+			target = new Vector3(-25, 25, 0);
+		
+		if(rand == 2)
+			target = new Vector3(25, -25, 0);
+		
+		if(rand == 3)
+			target = new Vector3(-25, -25, 0);
 	}
 	
 	void Update () {
@@ -27,7 +39,7 @@ public class Ball : MonoBehaviour {
 			if(collider.bounds.Intersects(child.collider.bounds))
 			{
 				Destroy(this.gameObject);
-				Debug.LogError("TRY HARDER");
+				gm.dead = true;
 			}
 		}
 		
